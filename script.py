@@ -11,7 +11,6 @@ cindex = cindex38
 TU = cindex.TranslationUnit
 ClangUtils = utils.ClangUtils
 filename = path.abspath("test.cpp")
-print(filename)
 clang_dir = ClangUtils.find_libclang_dir("clang++")
 if not cindex.Config.loaded:
     cindex.Config.set_library_path(clang_dir)
