@@ -16,7 +16,16 @@ This repo has one script in it: `script.py`. It tries to construct a translation
 - run `script.py` with your version of python
 
 # Current state
-Completion works as expected with Python 3.3.5 (closest I have found to the one in sublime text) from Power Shell but from the sublime text causes this:
+Completion works as expected with Python 3.3.5 (closest I have found to the one in sublime text) from Power Shell and outputs smth like:
+```
+DIR!!! = D:\Programmes\LLVM\bin
+platform: ('64bit', 'WindowsPE')
+python version: 3.5.1
+filename = D:\Programmes\LLVM\bin\libclang.dll
+59
+59
+```
+Calling the script from Sublime Text causes this error:
 ```
 Traceback (most recent call last):
   File "C:\Program Files\Sublime Text 3\sublime_plugin.py", line 78, in reload_plugin
