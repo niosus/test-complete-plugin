@@ -18,9 +18,9 @@ print("DIR!!! = ", clang_dir)
 print("platform: ", platform.architecture())
 print("python version: ", platform.python_version())
 clang_flags = ['-x', 'c++', '-std=c++11']
-tu = TU.from_source(filename=filename)
+tu = TU.from_source(filename=filename, args=clang_flags)
 tu.reparse()
-compl_obj = tu.codeComplete(path=filename, args=clang_flags, line=4, column=7)
+compl_obj = tu.codeComplete(path=filename, line=4, column=7)
 print(len(compl_obj.results))
 
 tu.reparse()
