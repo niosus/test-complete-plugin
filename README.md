@@ -5,6 +5,16 @@ I need to find a way to run `libclang` on Windows with Sublime Text 3.
 
 This repo has one script in it: `script.py`. It tries to construct a translation unit from a `test.cpp` file, then tries to reparse it and complete it.
 
+
+# Install it to sublime text 3
+- clone it into `C:\Users\<user>\AppData\Roaming\Sublime Text 3\Packages`
+- open Sublime Text 3
+- check console for output
+
+# Run it from Power shell
+- navigate to the folder where you have cloned it
+- run `script.py` with your version of python
+
 # Current state
 Completion works as expected with Python 3.3.5 (closest I have found to the one in sublime text) from Power Shell but from the sublime text causes this:
 ```
@@ -28,11 +38,3 @@ Traceback (most recent call last):
 clang.cindex38.TranslationUnitLoadError: Error parsing translation unit.
 ```
 
-# Install it to sublime text 3
-- clone it into `C:\Users\<user>\AppData\Roaming\Sublime Text 3\Packages`
-- open Sublime Text 3
-- check console for output
-
-# Run it from Power shell
-- navigate to the folder where you have cloned it
-- run `script.py` with your version of python
