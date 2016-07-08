@@ -4,10 +4,10 @@ import sys
 import platform
 from os import path
 sys.path.append(path.dirname(__file__))
-from clang import cindex38
+from clang import cindex_short
 from clang import utils
 
-cindex = cindex38
+cindex = cindex_short
 TU = cindex.TranslationUnit
 ClangUtils = utils.ClangUtils
 filename = path.abspath("test.cpp")
@@ -19,9 +19,13 @@ print("Platform: ", platform.architecture())
 print("Python version: ", platform.python_version())
 clang_flags = ['-x', 'c++', '-std=c++11']
 tu = TU.from_source(filename=filename, args=clang_flags)
-tu.reparse()
-compl_obj = tu.codeComplete(path=filename, line=4, column=7)
-print(len(compl_obj.results))
+if tu is not None:
+    print("YAY! Parsed TranslationUnit")
+else:
+    print("something went wrong")
+# tu.reparse()
+# compl_obj = tu.codeComplete(path=filename, line=4, column=7)
+# print(len(compl_obj.results))
 
-tu.reparse()
-print(len(compl_obj.results))
+# tu.reparse()
+# print(len(compl_obj.results))
