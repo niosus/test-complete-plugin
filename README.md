@@ -5,6 +5,8 @@ I need to find a way to run `libclang` on Windows with Sublime Text 3.
 
 This repo has one script in it: `script.py`. It tries to construct a translation unit from a `test.cpp` file, then tries to reparse it and complete it.
 
+You will need the newest `clang 3.8` that you can install from the official website.
+
 
 # Install it to sublime text 3
 - clone it into `C:\Users\<user>\AppData\Roaming\Sublime Text 3\Packages`
