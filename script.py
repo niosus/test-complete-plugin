@@ -24,9 +24,13 @@ if tu is not None:
 else:
     print("something went wrong")
 tu.reparse()
-compl_obj = tu.codeComplete(path=filename, line=4, column=6)
+compl_obj = tu.codeComplete(path=filename, line=4, column=7)
 print(len(compl_obj.results))
 
 tu.reparse()
-compl_obj = tu.codeComplete(path=filename, line=4, column=6)
+compl_obj = tu.codeComplete(path=filename, line=4, column=7)
 print(len(compl_obj.results))
+
+for diag in tu.diagnostics:
+	print("here")
+	print(diag)
