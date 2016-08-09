@@ -10,12 +10,11 @@ This repo has a script that can be run either standalone or from powershell.
 - open Sublime Text 3
 - check console for output
 
-# Run it from Power shell
+# Run it from command line
 - navigate to the folder where you have cloned it
 - run `script.py` with your version of python:
-```
-PS C:\Users\<user>\AppData\Roaming\Sublime Text 3\Packages\test-complete-plugin> python.exe .\script.py
-```
+  + Power Shell: `PS C:\Users\<user>\AppData\Roaming\Sublime Text 3\Packages\test-complete-plugin> python.exe .\script.py`
+  + terminal: `python <path_to_instalation>/sctipt.py`
 
 # Current state
 Parsing of the translation unit works as expected with Python 3.3.5 (closest I have found to the one in sublime text) from Power Shell and outputs some debug information, number of completions and then diagnostics of errors present in the code.
