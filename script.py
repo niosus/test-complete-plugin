@@ -10,7 +10,7 @@ from clang import utils
 cindex = cindex38
 TU = cindex.TranslationUnit
 ClangUtils = utils.ClangUtils
-filename = path.abspath(path.dirname(__file__) + "/test.cpp")
+filename = path.abspath(path.join(path.dirname(__file__), "test.cpp"))
 clang_dir = ClangUtils.find_libclang_dir("clang++")
 if not cindex.Config.loaded:
     cindex.Config.set_library_path(clang_dir)
