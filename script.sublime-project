@@ -13,5 +13,9 @@
 		{
 			"path": "."
 		}
+	],
+	"settings": [
+		{ "ecc_verbose": false },
 	]
+	
 }

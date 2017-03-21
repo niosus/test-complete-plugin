@@ -65,10 +65,7 @@ call is efficient.
 from ctypes import *
 import collections
 
-try:
-  import clang.enumerations
-except:
-  from . import enumerations
+from . import enumerations
 
 # ctypes doesn't implicitly convert c_void_p to the appropriate wrapper
 # object. This is a problem, because it means that from_parameter will see an
@@ -3611,7 +3608,6 @@ class Config:
 
     def get_cindex_library(self):
         try:
-            print("filename = ", self.get_filename())
             library = cdll.LoadLibrary(self.get_filename())
         except OSError as e:
             msg = str(e) + ". To provide a path to libclang use " \
@@ -3630,10 +3626,7 @@ class Config:
         return True
 
 def register_enumerations():
-    try:
-        enum = clang.enumerations.TokenKinds
-    except:
-        enum = enumerations.TokenKinds
+    enum = enumerations.TokenKinds
     for name, value in enum:
         TokenKind.register(value, name)
 
