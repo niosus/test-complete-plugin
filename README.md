@@ -1,5 +1,5 @@
 # Test for clang completion
-This relates to issue [niosus/EasyClangComplete#4](https://github.com/niosus/EasyClangComplete/issues/230).
+This relates to issue [niosus/EasyClangComplete#230](https://github.com/niosus/EasyClangComplete/issues/230).
 
 Using libclang with clang 4.0 crashes Sublime Text when trying to complete code interactively.
 
