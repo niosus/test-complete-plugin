@@ -1,9 +1,9 @@
 # Test for clang completion
-This relates to issue [niosus/EasyClangComplete#4](https://github.com/niosus/EasyClangComplete/issues/4).
+This relates to issue [niosus/EasyClangComplete#4](https://github.com/niosus/EasyClangComplete/issues/230).
 
-Now that the parsing of tu and completions seem to be (at least partially) working, there is still a problem with reading diagnostics of the translation unit. They are illustrated in this repo.
+Using libclang with clang 4.0 crashes Sublime Text when trying to complete code interactively.
 
-This repo has a script that can be run either standalone or from powershell. 
+This repo has a script that can be run either from Sublime Text or from powershell.
 
 # Install it to sublime text 3
 - clone it into `C:\Users\<user>\AppData\Roaming\Sublime Text 3\Packages`
@@ -17,6 +17,30 @@ This repo has a script that can be run either standalone or from powershell.
   + terminal: `python <path_to_instalation>/sctipt.py`
 
 # Current state
-Parsing of the translation unit works as expected with Python 3.3.5 (closest I have found to the one in sublime text) from Power Shell and outputs some debug information, number of completions and then diagnostics of errors present in the code.
+The `script.py` never crashes. It doesn't matter if it is run from sublime text or from powershell. The strange thing is that when we try to manually complete the `test.cpp` provided with this plugin this crashes plugin host.
 
-Calling the script from Sublime Text causes the `plugin_host` of sublime text to stop.
+Outputs:
+## Test plugin run from Sublime Text on start ##
+```
+PARSED TU:  <ctypes.wintypes.LP_c_void_p object at 0x0000014E6FAFB448>
+[('C:\\Users\\igor\\AppData\\Roaming\\Sublime Text 3\\Packages\\test-complete-plugin\\test.cpp', '#include <vector>\nint main(int argc, char const *argv[]) {\n  std::vector<int> vec;\n  vec.\n}')]
+<CDLL 'C:\Program Files\LLVM\bin\libclang.dll', handle 7fff92f20000 at 14e6faccf98>
+path b'C:\\Users\\igor\\AppData\\Roaming\\Sublime Text 3\\Packages\\test-complete-plugin\\test.cpp'
+line 4
+column 7
+len unsaved 1
+options 0
+<clang.cindex40_new.LP_CCRStructure object at 0x0000014E6FAFBCC8>
+```
+## Manual trigger of completion from Sublime Text using EasyClangComplete ##
+```
+PARSED TU: <ctypes.wintypes.LP_c_void_p object at 0x0000014E7000B5C8>
+[('C:\\Users\\igor\\AppData\\Roaming\\Sublime Text 3\\Packages\\test-complete-plugin\\test.cpp', '#include <vector>\nint main(int argc, char const *argv[]) {\n  std::vector<int> vec;\n  vec.\n}')]
+<CDLL 'C:\Program Files\LLVM\bin\libclang.dll', handle 7fff92f20000 at 14e6fc922e8>
+path b'C:\\Users\\igor\\AppData\\Roaming\\Sublime Text 3\\Packages\\test-complete-plugin\\test.cpp'
+line 4
+column 7
+len unsaved 1
+options 0
+error: plugin_host has exited unexpectedly, plugin functionality won't be available until Sublime Text has been restarted
+``` 
