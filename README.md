@@ -2,7 +2,7 @@
 This relates to issue [niosus/EasyClangComplete#230](https://github.com/niosus/EasyClangComplete/issues/230).
 
 Using libclang with clang 4.0 crashes Sublime Text when trying to complete code interactively.
-
+asdasda
 This repo has a script that can be run either from Sublime Text or from powershell.
 
 # Install it to sublime text 3
