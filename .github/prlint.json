@@ -7,7 +7,7 @@
   ],
   "body": [
     {
-      "pattern": ".{1,}",
+      "pattern": ".+",
       "message": "You need literally anything in your description"
     }
   ],
